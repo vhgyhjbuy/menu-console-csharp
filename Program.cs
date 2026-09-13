@@ -27,43 +27,35 @@ class Program
             DesenhaJanelaComFundo(5, 2, 70, 5, ConsoleColor.Cyan, ConsoleColor.Black, "*** M e n u   P r i n c i p a l ***");
 
             // ====== JANELA COM OPÇÕES ======
-            DesenhaJanelaComFundo(10, 8, 60, 17, ConsoleColor.Cyan, ConsoleColor.Black, "");
+            DesenhaJanelaComFundo(10, 8, 60, 16, ConsoleColor.Cyan, ConsoleColor.Black, "");
             Console.SetCursorPosition(12, 9);
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write("[1] Analisa Números");
+            Console.Write("[1] Menu Vetores");
             Thread.Sleep(200);
 
             Console.SetCursorPosition(12, 10);
-            Console.Write("[2] Consulta Dia ou Mês");
+            Console.Write("[2] Joguinho Adivinha Número");
             Thread.Sleep(200);
 
             Console.SetCursorPosition(12, 11);
-            Console.Write("[3] Sigla ou estado");
+            Console.Write("[3] Tabuada");
             Thread.Sleep(200);
 
             Console.SetCursorPosition(12, 12);
-            Console.Write("[4] Número por extenso");
+            Console.Write("[4] Média Aritmética");
             Thread.Sleep(200);
 
             Console.SetCursorPosition(12, 13);
-            Console.Write("[5] Sorteia nome");
+            Console.Write("[5] Sorteia Nome");
             Thread.Sleep(200);
 
             Console.SetCursorPosition(12, 14);
-            Console.Write("[6] Tabuada");
-            Thread.Sleep(200);
-
-            Console.SetCursorPosition(12, 15);
-            Console.Write("[7] Média Aritmética");
-            Thread.Sleep(200);
-
-            Console.SetCursorPosition(12, 16);
-            Console.Write("[8] Encerrar");
+            Console.Write("[6] Fim");
             Thread.Sleep(200);
 
             // ====== JANELA DE ENTRADA ======
-            DesenhaJanelaComFundo(10, 18, 60, 21, ConsoleColor.Cyan, ConsoleColor.Black, "");
-            Console.SetCursorPosition(12, 19);
+            DesenhaJanelaComFundo(10, 17, 60, 20, ConsoleColor.Cyan, ConsoleColor.Black, "");
+            Console.SetCursorPosition(12, 18);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write("Digite sua opção: ");
             Console.ForegroundColor = ConsoleColor.White;
@@ -77,27 +69,21 @@ class Program
             switch (opc)
             {
                 case 1:
-                    AnalisaNumeros();
+                    MenuVetores();
                     break;
                 case 2:
-                    ConsultaDiaMes();
+                    Adivinha();
                     break;
                 case 3:
-                    SiglaEstado();
+                    Tabuada();
                     break;
                 case 4:
-                    NumeroPorExtenso();
+                    MediaAritmetica();
                     break;
                 case 5:
                     SorteiaName();
                     break;
                 case 6:
-                    Tabuada();
-                    break;
-                case 7:
-                    MediaAritmetica();
-                    break;
-                case 8:
                     Console.Clear();
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.White;
@@ -116,7 +102,7 @@ class Program
                     Thread.Sleep(2000);
                     break;
                 default:
-                    Console.SetCursorPosition(12, 20);
+                    Console.SetCursorPosition(12, 19);
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Opção Inválida!");
                     Console.ForegroundColor = ConsoleColor.White;
@@ -124,7 +110,7 @@ class Program
                     break;
             }
 
-        } while (opc != 8);
+        } while (opc != 6);
     }
 
     // ====== FUNÇÃO PARA DESENHAR JANELA COM FUNDO PREENCHIDO ======
@@ -159,6 +145,97 @@ class Program
         }
 
         Console.ForegroundColor = ConsoleColor.White;
+    }
+
+    static void MenuVetores()
+    {
+        int opc2;
+        do
+        {
+            // ====== CONFIGURAR TELA COM FUNDO VERMELHO ======
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+
+            // Preenche todo o background com vermelho
+            for (int i = 0; i < Console.WindowHeight; i++)
+            {
+                Console.SetCursorPosition(0, i);
+                Console.Write(new string(' ', Console.WindowWidth));
+            }
+
+            // ====== JANELA PRINCIPAL ======
+            DesenhaJanelaComFundo(5, 2, 70, 5, ConsoleColor.Yellow, ConsoleColor.Black, "*** M E N U   V E T O R E S ***");
+
+            // ====== JANELA COM OPÇÕES ======
+            DesenhaJanelaComFundo(10, 8, 60, 16, ConsoleColor.Yellow, ConsoleColor.Black, "");
+            Console.SetCursorPosition(12, 9);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("[1] Analisa Números");
+            Thread.Sleep(200);
+
+            Console.SetCursorPosition(12, 10);
+            Console.Write("[2] Consulta Dia/Mês");
+            Thread.Sleep(200);
+
+            Console.SetCursorPosition(12, 11);
+            Console.Write("[3] Sigla ou Nome de Estado");
+            Thread.Sleep(200);
+
+            Console.SetCursorPosition(12, 12);
+            Console.Write("[4] Número por Extenso");
+            Thread.Sleep(200);
+
+            Console.SetCursorPosition(12, 13);
+            Console.Write("[5] Sorteia Nome");
+            Thread.Sleep(200);
+
+            Console.SetCursorPosition(12, 14);
+            Console.Write("[6] Encerrar");
+            Thread.Sleep(200);
+
+            // ====== JANELA DE ENTRADA ======
+            DesenhaJanelaComFundo(10, 17, 60, 20, ConsoleColor.Yellow, ConsoleColor.Black, "");
+            Console.SetCursorPosition(12, 18);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Digite sua opção: ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Red;
+
+            if (!int.TryParse(Console.ReadLine(), out opc2))
+            {
+                opc2 = 0;
+            }
+
+            switch (opc2)
+            {
+                case 1:
+                    AnalisaNumeros();
+                    break;
+                case 2:
+                    ConsultaDiaMes();
+                    break;
+                case 3:
+                    SiglaEstado();
+                    break;
+                case 4:
+                    NumeroPorExtenso();
+                    break;
+                case 5:
+                    SorteiaNameVetores();
+                    break;
+                case 6:
+                    break;
+                default:
+                    Console.SetCursorPosition(12, 19);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Opção Inválida!");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Thread.Sleep(1500);
+                    break;
+            }
+
+        } while (opc2 != 6);
     }
 
     static void AnalisaNumeros()
@@ -576,7 +653,7 @@ class Program
         } while (continuar == 'S' || continuar == 's');
     }
 
-    static void SorteiaName()
+    static void SorteiaNameVetores()
     {
         char continuar = 'S';
         do
@@ -695,7 +772,7 @@ class Program
         } while (continuar == 'S' || continuar == 's');
     }
 
-    static void Tabuada()
+    static void Adivinha()
     {
         char continuar = 'S';
 
@@ -711,6 +788,78 @@ class Program
                 Console.Write(new string(' ', Console.WindowWidth));
             }
 
+            DesenhaJanelaComFundo(5, 2, 70, 5, ConsoleColor.Cyan, ConsoleColor.Black, "*** J O G U I N H O   A D I V I N H A   N Ú M E R O ***");
+
+            int numero = random.Next(1, 101);
+            int tentativa = 0;
+            int palpite = 0;
+
+            DesenhaJanelaComFundo(10, 8, 60, 18, ConsoleColor.Cyan, ConsoleColor.Black, "");
+            Console.SetCursorPosition(12, 9);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Adivinhe um número de 1 a 100!");
+            Console.WriteLine();
+
+            while (palpite != numero)
+            {
+                tentativa++;
+                Console.SetCursorPosition(12, 10 + tentativa);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write($"Tentativa {tentativa}: ");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+
+                if (!int.TryParse(Console.ReadLine(), out palpite))
+                {
+                    palpite = 0;
+                }
+
+                Console.SetCursorPosition(12, 11 + tentativa);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                if (palpite < numero)
+                    Console.WriteLine("O número é MAIOR!");
+                else if (palpite > numero)
+                    Console.WriteLine("O número é MENOR!");
+                else
+                    Console.WriteLine($"PARABÉNS! Você acertou em {tentativa} tentativa(s)!");
+
+                if (tentativa >= 10)
+                {
+                    Console.SetCursorPosition(12, 12 + tentativa);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Fim de jogo! O número era {numero}");
+                    break;
+                }
+            }
+
+            DesenhaJanelaComFundo(10, 19, 60, 22, ConsoleColor.Cyan, ConsoleColor.Black, "");
+            Console.SetCursorPosition(12, 20);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("Deseja continuar? (S/N): ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            continuar = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+
+        } while (continuar == 'S' || continuar == 's');
+    }
+
+    static void Tabuada()
+    {
+        char continuar = 'S';
+
+        do
+        {
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            Console.ForegroundColor = ConsoleColor.White;
+
+            for (int i = 0; i < Console.WindowHeight; i++)
+            {
+                Console.SetCursorPosition(0, i);
+                Console.Write(new string(' ', Console.WindowWidth));
+            }
+
             DesenhaJanelaComFundo(5, 2, 70, 5, ConsoleColor.Yellow, ConsoleColor.Black, "*** T A B U A D A ***");
 
             DesenhaJanelaComFundo(10, 8, 60, 12, ConsoleColor.Yellow, ConsoleColor.Black, "");
@@ -718,7 +867,7 @@ class Program
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("Digite um número (1-10): ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
 
             if (!int.TryParse(Console.ReadLine(), out int numero))
             {
@@ -726,7 +875,7 @@ class Program
             }
 
             Console.Clear();
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
             Console.ForegroundColor = ConsoleColor.White;
 
             for (int i = 0; i < Console.WindowHeight; i++)
@@ -761,7 +910,7 @@ class Program
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("Deseja continuar? (S/N): ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
             continuar = Console.ReadKey().KeyChar;
             Console.WriteLine();
 
@@ -867,6 +1016,129 @@ class Program
             Console.Write("Deseja continuar? (S/N): ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.DarkCyan;
+            continuar = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+
+        } while (continuar == 'S' || continuar == 's');
+    }
+
+    static void SorteiaName()
+    {
+        char continuar = 'S';
+        do
+        {
+            string[] nome = new string[5];
+            string[] nome_sorteado = new string[5];
+            bool[] ja_sorteado = { false, false, false, false, false };
+            int n;
+            HashSet<string> nomes_verificados = new HashSet<string>();
+
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.DarkMagenta;
+            Console.ForegroundColor = ConsoleColor.White;
+
+            for (int i = 0; i < Console.WindowHeight; i++)
+            {
+                Console.SetCursorPosition(0, i);
+                Console.Write(new string(' ', Console.WindowWidth));
+            }
+
+            DesenhaJanelaComFundo(5, 2, 70, 5, ConsoleColor.Yellow, ConsoleColor.Black, "*** S O R T E I A   N O M E ***");
+
+            // ====== VALIDAÇÃO DE NOMES DUPLICADOS ======
+            bool nomes_validos = false;
+            while (!nomes_validos)
+            {
+                nomes_validos = true;
+                nomes_verificados.Clear();
+                DesenhaJanelaComFundo(10, 8, 60, 16, ConsoleColor.Yellow, ConsoleColor.Black, "");
+
+                for (int i = 0; i < 5; i++)
+                {
+                    Console.SetCursorPosition(12, 9 + i);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write($"Informe o {i + 1}º nome: ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                    nome[i] = Console.ReadLine().Trim();
+
+                    // Verifica se o nome já foi inserido
+                    if (nomes_verificados.Contains(nome[i].ToLower()))
+                    {
+                        Console.Clear();
+
+                        for (int j = 0; j < Console.WindowHeight; j++)
+                        {
+                            Console.SetCursorPosition(0, j);
+                            Console.Write(new string(' ', Console.WindowWidth));
+                        }
+
+                        DesenhaJanelaComFundo(5, 10, 70, 14, ConsoleColor.Red, ConsoleColor.Black, "");
+                        Console.SetCursorPosition(12, 11);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("✗ ERRO: Nomes duplicados! Digite novamente.");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                        Thread.Sleep(2000);
+                        Console.Clear();
+
+                        for (int j = 0; j < Console.WindowHeight; j++)
+                        {
+                            Console.SetCursorPosition(0, j);
+                            Console.Write(new string(' ', Console.WindowWidth));
+                        }
+
+                        DesenhaJanelaComFundo(5, 2, 70, 5, ConsoleColor.Yellow, ConsoleColor.Black, "*** S O R T E I A   N O M E ***");
+
+                        nomes_validos = false;
+                        break;
+                    }
+
+                    nomes_verificados.Add(nome[i].ToLower());
+                }
+            }
+
+            // ====== SORTEIO DOS NOMES ======
+            for (int i = 0; i < 5; i++)
+            {
+                do
+                {
+                    n = random.Next(0, 5);
+                } while (ja_sorteado[n] == true);
+
+                ja_sorteado[n] = true;
+                nome_sorteado[i] = nome[n];
+            }
+
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.DarkMagenta;
+            Console.ForegroundColor = ConsoleColor.White;
+
+            for (int i = 0; i < Console.WindowHeight; i++)
+            {
+                Console.SetCursorPosition(0, i);
+                Console.Write(new string(' ', Console.WindowWidth));
+            }
+
+            DesenhaJanelaComFundo(5, 2, 70, 5, ConsoleColor.Cyan, ConsoleColor.Black, "*** R E S U L T A D O   D O   S O R T E I O ***");
+
+            DesenhaJanelaComFundo(10, 8, 60, 15, ConsoleColor.Cyan, ConsoleColor.Black, "");
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.SetCursorPosition(12, 9 + i);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"★ {i + 1}º - {nome_sorteado[i]}");
+                Thread.Sleep(400);
+            }
+            Thread.Sleep(500);
+
+            DesenhaJanelaComFundo(10, 16, 60, 19, ConsoleColor.Cyan, ConsoleColor.Black, "");
+            Console.SetCursorPosition(12, 17);
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("Deseja continuar? (S/N): ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.DarkMagenta;
             continuar = Console.ReadKey().KeyChar;
             Console.WriteLine();
 
